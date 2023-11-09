@@ -1,18 +1,19 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FriendsListComponent } from './friends-list.component';
+import { Component } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FriendsListPageComponent } from "./friends-list.page.component";
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, FriendsListComponent],
-  template: `
+    selector: "app-root",
+    standalone: true,
+    imports: [CommonModule, FriendsListPageComponent],
+    template: `
     <h1>My friends list</h1>
-    <app-friends-list />
-    
+    <main>
+      <app-friends-list-page />
+    </main>
   `,
-  styles: [],
+    styles: [],
 })
 export class AppComponent {
-  title = 'angular_02_friends';
+  title = "angular_02_friends";
 }

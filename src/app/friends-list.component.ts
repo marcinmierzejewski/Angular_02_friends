@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { CommonModule, NgFor } from "@angular/common";
 import { Friend } from "./Friend";
 
@@ -13,6 +13,7 @@ import { Friend } from "./Friend";
           class="flex justify-start items-center"
           *ngFor="let friend of friends"
         >
+          <img class="w-10 h-10" src="{{ friend.avatar }}" alt="avatar" />
           <button
             class="w-5 h-5 rounded-xl m-4 {{
               friend.isOnline ? 'bg-lime-500' : 'bg-rose-900'
@@ -27,37 +28,8 @@ import { Friend } from "./Friend";
   styles: [],
 })
 export class FriendsListComponent {
-  friends: Friend[] = [
-    {
-      avatar: "https://cdn-icons-png.flaticon.com/512/1998/1998592.png",
-      name: "Mango",
-      isOnline: true,
-      id: 1812,
-    },
-    {
-      avatar: "https://cdn-icons-png.flaticon.com/512/616/616438.png",
-      name: "Kiwi",
-      isOnline: false,
-      id: 1137,
-    },
-    {
-      avatar: "https://cdn-icons-png.flaticon.com/512/1623/1623681.png",
-      name: "Ajax",
-      isOnline: true,
-      id: 1213,
-    },
-    {
-      avatar: "https://cdn-icons-png.flaticon.com/512/2977/2977285.png",
-      name: "Jay",
-      isOnline: true,
-      id: 1714,
-    },
-    {
-      avatar: "https://cdn-icons-png.flaticon.com/512/1998/1998749.png",
-      name: "Poly",
-      isOnline: false,
-      id: 1284,
-    },
+  @Input({ required: true }) friends: Friend[] = [
+    // 
   ];
 
   changeLoginStatus(friend: Friend) {
